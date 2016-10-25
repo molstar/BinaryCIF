@@ -397,7 +397,7 @@ Specific useful parts of the code:
 - [CIF Dictionary Interfaces](https://github.com/dsehnal/CIFTools.js/blob/master/src/Dictionary.ts)
     - [BinaryCIF implementation of the Interfaces](https://github.com/dsehnal/CIFTools.js/blob/master/src/Binary/Dictionary.ts)
 
-All the important code can be found in [this folder](https://github.com/dsehnal/CIFTools.js/tree/master/src/Binary). Be sure to check
+All the important code can be found in [this folder](https://github.com/dsehnal/CIFTools.js/tree/master/src/Binary). Be sure to check out
 the [examples](https://github.com/dsehnal/CIFTools.js/tree/master/examples).
 
 Use Cases
@@ -418,23 +418,21 @@ The BinaryCIF format has been applied to encode macromolecular data stored using
 data format (mmCIF is a schema of categories and fields that desribe a macromolecular structure
 stored using the CIF format). The raw data for the benchmark are included in this repository.
 
+- The "CoordinateServer" results were obtained using the corresponding query of the [CoordinateServer](https://webchemdev.ncbr.muni.cz/CoordinateServer).
+- The "MMTF" results were obtained using [MMTF](https://mmtf.rcsb.org) version 1.0.
+
 ## HIV-1 Capsid size
 
 Encoding the currenly largest structure in the PDB.org archive, the [HIV-1 Capsid](https://pdbe.org/3j3q)
 with 2.44M atoms, BinaryCIF achieves very good results. 
-
-- The "CoordinateServer" results very obtainig using the corresponding query using the [CoordinateServer](https://webchemdev.ncbr.muni.cz/CoordinateServer).
-- The "MMTF" results were obtained using [MMTF](https://mmtf.rcsb.org) version 1.0.
 
 ![3j3q size](img/bench-3j3q.png)
 
 
 ## Whole PDB archive size
 
-- The "CoordinateServer" results very obtaing using the cooresponding query using the [CoordinateServer](https://webchemdev.ncbr.muni.cz/CoordinateServer).
-- The "MMTF" results were obtained using [MMTF](https://mmtf.rcsb.org) version 1.0.
-    - (*) RCSB PDB: 122333 Entries, some 404'ed; recompressed using the same compression level as the other data.
-    - (**) reduced = alpha + phosphate trace + HET
+- (*) RCSB PDB: 122333 Entries, some 404'ed; recompressed using the same compression level as the other data.
+- (**) reduced = alpha + phosphate trace + HET
 
 
 ![PDB Size](img/bench-pdb.png)
