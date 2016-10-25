@@ -291,16 +291,21 @@ Stores the input integer array as an array of consecutive differences.
 ```
 Delta {
     kind = "Delta"
+    origin: number
     srcType: Int8 | Int16 | Int32 | Uint8
 }
 ```
 
+Because delta encoding is often used in conjuction with integer packing,
+the ``origin`` property is present. This is to optimize the case
+where the first value is large, but the differences are small. 
+
 #### Example
 
 ```
-[1, 3, 5, 6] 
+[1000, 1003, 1005, 1006] 
 ---Delta---> 
-{ srcType = Int32 } [1, 2, 2, 1]
+{ origin = 1000, srcType = Int32 } [0, 2, 2, 1]
 ```
 
 ### Integer Packing
