@@ -1,5 +1,6 @@
-![BinaryCIF](img/logo.png)
+![Version 0.3.0](http://img.shields.io/badge/Version-0.3.0-blue.svg?style=flat)
 
+![BinaryCIF](img/logo.png)
 
 What is BinaryCIF
 =================
@@ -222,7 +223,8 @@ Currently, BinaryCIF supports these encoding methods:
 ```
 type Encoding = 
     | ByteArray 
-    | FixedPoint 
+    | FixedPoint
+    | IntervalQuantization 
     | RunLength 
     | Delta 
     | IntegerPacking 
@@ -238,7 +240,7 @@ Encodes an array of numbers of specified types as raw bytes.
 ```
 ByteArray {
     kind = "ByteArray"
-    type: Int8 | Int16 | Int32 | Uint8 | Float32 | Float64
+    type: Int8 | Int16 | Int32 | Uint8 | Uint16 | Uint32 | Float32 | Float64
 }
 ```
 
@@ -251,6 +253,7 @@ by a given factor.
 FixedPoint {
     kind = "FixedPoint"
     factor: number
+    srcType: Float32 | Float64
 }
 ```
 
@@ -262,6 +265,31 @@ FixedPoint {
 { factor = 100 } [120, 123, 12] 
 ``` 
 
+### Interval Quantization
+
+Converts an array of floating point numbers to an array of 32-bit integers where 
+the values are quantized within a given interval into specified number of
+discrete steps. Values lower than the minimum value or greater than the 
+maximum are reprented by the respective boundary values.
+
+```
+FixedPoint {
+    kind = "IntervalQuantization"
+    min: number,
+    max: number,
+    numSteps: number,
+    srcType: Float32 | Float64
+}
+```
+
+#### Example
+
+```
+[0.5, 1, 1.5, 2, 3, 1.345 ] 
+---IntervalQuantization---> 
+{ min = 1, max = 2, numSteps = 3 } [0, 0, 1, 2, 2, 1] 
+``` 
+
 ### Run Length
 
 Represents each integer value in the input as a pair of ``(value, number of repeats)``
@@ -271,7 +299,7 @@ stores the size of the original array to make decoding easier.
 ```
 RunLength {
     kind = "RunLength"
-    srcType: Int8 | Int16 | Int32 | Uint8
+    srcType: int[]
     srcSize: number
 }
 ```
@@ -292,7 +320,7 @@ Stores the input integer array as an array of consecutive differences.
 Delta {
     kind = "Delta"
     origin: number
-    srcType: Int8 | Int16 | Int32 | Uint8
+    srcType: int[]
 }
 ```
 
@@ -311,13 +339,15 @@ where the first value is large, but the differences are small.
 ### Integer Packing
 
 Stores a 32-bit integer array using 8- or 16-bit values. Includes the size 
-of the input array for easier decoding.
+of the input array for easier decoding. The encoding is more effective 
+when only unsigned values are privided. 
 
 ```
 IntegerPacking {
     kind = "IntegerPacking"
     byteCount: number
     srcSize: number
+    isUnsigned: boolean
 }
 ```
 
@@ -326,7 +356,7 @@ IntegerPacking {
 ```
 [1, 2, -3, 128] 
 ---IntgerPacking---> 
-{ byteCount = 1, srcSize = 4 } [1, 2, -3, 127, 1]
+{ byteCount = 1, srcSize = 4, isUnsigned = false } [1, 2, -3, 127, 1]
 ```
 
 ### String Array
