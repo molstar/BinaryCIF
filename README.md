@@ -400,6 +400,8 @@ from the background section, we could specify the encoding as ``[Delta, RunLengt
 { byteCount = 1, srcSize = 2 } [1, 4]
 ```
 
+**Little endian** is used everywhere to encode the data.
+
 Once each column has been encoded and the ``File`` data structure built, the 
 [MessagePack](https://msgpack.org/) format (which is more or less a binary encoding of the standard
 JSON format) is used to produce the final binary result. 
