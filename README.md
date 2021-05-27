@@ -31,9 +31,9 @@ BinaryCIF is currently available as TypeScript (JavaScript) and Java.
 Principles
 ==========
 
-* [Basic Principles](principle)
-* [BinaryCIF Format](encoding)
-* [Benchmark](benchmark)
+* [Basic Principles](principle.md)
+* [BinaryCIF Format](encoding.md)
+* [Benchmark](benchmark.md)
 
 Use Cases
 =========
