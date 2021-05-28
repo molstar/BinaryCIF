@@ -22,18 +22,19 @@ Table of contents
 Implementations
 =================
 
-BinaryCIF is currently available as TypeScript (JavaScript) and Java.
+BinaryCIF is currently available as TypeScript (JavaScript), Java, and Python.
 
 - TypeScript implementation is part of the [Mol* project](https://github.com/molstar/molstar) (the original implementation of the BinaryCIF format is the [CIFTools.js library](https://github.com/dsehnal/CIFTools.js)).
 - [Mol* ciftools](https://github.com/molstar/ciftools) are available as a standalone library/tools for conversion of text CIF to BinaryCIF.
 - Java implementation is available at [rcsb/ciftools-java](https://github.com/rcsb/ciftools-java).
+- Python implementation is part of [rcsb/py-mmcif](https://github.com/rcsb/py-mmcif).
 
 Principles
 ==========
 
-* [Basic Principles](principle)
-* [BinaryCIF Format](encoding)
-* [Benchmark](benchmark)
+* [Basic Principles](principle.md)
+* [BinaryCIF Format](encoding.md)
+* [Benchmark](benchmark.md)
 
 Use Cases
 =========
