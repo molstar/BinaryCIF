@@ -106,7 +106,7 @@ discrete steps. Values lower than the minimum value or greater than the
 maximum are reprented by the respective boundary values.
 
 ```
-FixedPoint {
+IntervalQuantization {
     kind = "IntervalQuantization"
     min: number,
     max: number,
