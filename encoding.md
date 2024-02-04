@@ -186,7 +186,7 @@ IntegerPacking {
 }
 ```
 
-#### Example 
+#### Example (8-bit type output)
 
 ```
 [1, 2, -3, 128] 
