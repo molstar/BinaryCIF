@@ -173,7 +173,9 @@ where the first value is large, but the differences are small.
 
 Stores a 32-bit integer array using 8- or 16-bit values. Includes the size 
 of the input array for easier decoding. The encoding is more effective 
-when only unsigned values are privided. 
+when only unsigned values are provided. 
+
+If a value exceeds the maximum value for the 8- or 16- bit type, the maximum value may be output numerous times to add up the value.
 
 ```
 IntegerPacking {
@@ -184,7 +186,7 @@ IntegerPacking {
 }
 ```
 
-#### Example 
+#### Example (8-bit type output)
 
 ```
 [1, 2, -3, 128] 
