@@ -166,7 +166,7 @@ where the first value is large, but the differences are small.
 ```
 [1000, 1003, 1005, 1006] 
 ---Delta---> 
-{ origin = 1000, srcType = Int32 } [0, 2, 2, 1]
+{ origin = 1000, srcType = Int32 } [0, 3, 2, 1]
 ```
 
 ### Integer Packing
