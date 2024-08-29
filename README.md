@@ -29,7 +29,7 @@ BinaryCIF is currently available as TypeScript (JavaScript), Java, and Python.
 - Java implementation is available at [rcsb/ciftools-java](https://github.com/rcsb/ciftools-java).
 - Python implementations:
    - [rcsb/py-mmcif](https://github.com/rcsb/py-mmcif) and higher level library wrapping the same package: [rcsb/py-rcsb_utils_io](https://github.com/rcsb/py-rcsb_utils_io)
-   - [Biotite](https://github.com/biotite-dev/biotite) since version 0.4.0 (see [release notes](https://github.com/biotite-dev/biotite/releases/tag/v0.40.0))
+   - [Biotite](https://github.com/biotite-dev/biotite) since version `0.40.0` (see [release notes](https://github.com/biotite-dev/biotite/releases/tag/v0.40.0))
 
 Principles
 ==========
