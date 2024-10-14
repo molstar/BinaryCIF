@@ -34,7 +34,7 @@ Category {
 Column {
     name: string
     data: Data
-    mask: Data
+    mask: Data | undefined
 }
 
 Data {
@@ -252,3 +252,36 @@ for each column, the binary data are decoded applying inverses of the transforma
 specified in the ``encoding`` array backwards. So to decode the encoding specified by
 ``[Delta, RunLength, IntegerPacking]`` we would first apply the decoding
 of ``IntegerPacking``, then ``RunLength``, and finally ``Delta``.
+
+Masks
+-----
+
+The `Column.mask: Data | undefined` property determines the type of the value corresponding to CIF "value", `.` (undefined) and `?` tokens (unknown). 
+
+- Undefined` mask means all values are defined
+- Value `0` corresponds to a value being present.
+- Value `1` corresponds to `.` token.
+- Value `2` corresponds to `?` token.
+
+#### Example
+
+The CIF field `x`
+
+```
+loop_
+_category.x
+1
+.
+2
+?
+```
+
+could be encoded as 
+
+```js
+Column {
+  name: 'x'
+  data: [1,0.2,0]  // encoded
+  mask: [0,1,0,2]  // encoded 
+}
+```
